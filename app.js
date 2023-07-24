@@ -1,6 +1,7 @@
-const express = require('express')
-const dotenv = require('dotenv')
-const ejsLayout = require('express-ejs-layouts')
+import express from "express"
+import dotenv from "dotenv"
+import ejsLayout from "express-ejs-layouts";
+import mongoose from "mongoose";
 
 dotenv.config();
 const app = express()
@@ -9,22 +10,15 @@ app.set('views', './views');
 app.use(express.static('public'))
 app.use(ejsLayout)
 
-// auto refresh
-const path = require("path");
-const livereload = require("livereload");
-const liveReloadServer = livereload.createServer();
-liveReloadServer.watch(path.join(__dirname, 'public'));
-
-
-const connectLivereload = require("connect-livereload");
-app.use(connectLivereload());
-
-liveReloadServer.server.once("connection", () => {
-    setTimeout(() => {
-        liveReloadServer.refresh("/");
-    }, 100);
-});
-
+// mongoose connection
+mongoose.connect(process.env.mongoConnection)
+    .then((result) => {
+        app.listen(process.env.port, () => {
+            console.log(`Example app listening on port ${process.env.port}`)
+        })
+    }).catch((err) => {
+        console.log(err);
+    })
 
 app.get('/', (req, res) => {
     res.redirect('/Home')
@@ -35,9 +29,5 @@ app.get('/Home', (req, res) => {
 })
 
 app.use((req, res) => {
-    res.status(404).send('Page Not Found')
-})
-
-app.listen(process.env.port, () => {
-    console.log(`Example app listening on port ${process.env.port}`)
+    res.status(404).render('NotFound', { layout: false })
 })
