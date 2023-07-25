@@ -21,10 +21,10 @@ mongoose.connect(process.env.mongoConnection)
     })
 
 app.get('/', (req, res) => {
-    res.redirect('/Home')
+    res.redirect('/home')
 })
 
-app.get('/Home', (req, res) => {
+app.get('/home', (req, res) => {
     res.render('index')
 })
 
