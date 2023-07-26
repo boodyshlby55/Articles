@@ -28,6 +28,10 @@ app.get('/home', (req, res) => {
     res.render('index')
 })
 
+app.get('/addArticle', (req, res) => {
+    res.render('addArticle')
+})
+
 app.use((req, res) => {
     res.status(404).render('NotFound', { layout: false })
 })
