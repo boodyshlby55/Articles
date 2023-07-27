@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { addArticlePage, saveArticle } from "../controllers/articles.js";
+import { addArticlePage, articlesPage, saveArticle } from "../controllers/articles.js";
 
 const router = new Router()
-router.get('/',)
+router.get('/', articlesPage)
 router.get('/addArticle', addArticlePage)
 router.post('/addArticle', saveArticle)
 

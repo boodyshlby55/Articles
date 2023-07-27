@@ -3,3 +3,9 @@
     background-size: cover !important;
     height: 50vh;
 }
+
+/* Articles */
+.article-background {
+    background-image: url("/images/wallpaperflare.com_wallpaper.jpg");
+    background-size: cover;
+}
