@@ -11,4 +11,4 @@ const article = new Schema({
     }
 });
 
-export default model("article", article);
+export default model("Article", article);

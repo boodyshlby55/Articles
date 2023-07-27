@@ -3,12 +3,16 @@ import dotenv from "dotenv"
 import ejsLayout from "express-ejs-layouts";
 import mongoose from "mongoose";
 
+import homeRouter from "./routes/homeRouter.js"
+import articlesRouter from "./routes/articlesRouter.js"
+
 dotenv.config();
 const app = express()
 app.set('view engine', 'ejs')
 app.set('views', './views');
 app.use(express.static('public'))
 app.use(ejsLayout)
+app.use(express.urlencoded({ extended: true }))
 
 // mongoose connection
 mongoose.connect(process.env.mongoConnection)
@@ -20,18 +24,7 @@ mongoose.connect(process.env.mongoConnection)
         console.log(err);
     })
 
-app.get('/', (req, res) => {
-    res.redirect('/home')
-})
-
-app.get('/home', (req, res) => {
-    res.render('index')
-})
-
-app.get('/addArticle', (req, res) => {
-    res.render('addArticle')
-})
-
-app.use((req, res) => {
-    res.status(404).render('NotFound', { layout: false })
-})
+app.get('/', (req, res) => { res.redirect('/home') })
+app.use('/home', homeRouter)
+app.use('/articles', articlesRouter)
+app.use((req, res) => { res.status(404).render('NotFound', { layout: false }) })
