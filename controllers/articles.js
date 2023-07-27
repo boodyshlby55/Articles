@@ -1,7 +1,7 @@
 import Article from "../models/articlesSchema.js"
 
 export const addArticlePage = (req, res) => {
-    res.render('addArticle')
+    res.render('addArticle', { pageTitle: "Add Article" })
 }
 
 export const saveArticle = (req, res) => {
