@@ -10,6 +10,13 @@ export const articlesPage = (req, res) => {
         })
 }
 
+export const articlePage = (req, res) => {
+    Article.findById(req.params._id)
+        .then((result) => {
+            res.render('article', { pageTitle: `${result.title} Article`, display: "d-inline-block", article: result })
+        })
+}
+
 export const addArticlePage = (req, res) => {
     res.render('addArticle', { pageTitle: "Add Article", display: "d-none" })
 }
