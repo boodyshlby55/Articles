@@ -36,3 +36,13 @@ export const saveArticle = (req, res) => {
     //     })
     //     res.redirect('/articles')
 }
+
+export const deleteArticle = (req, res) => {
+    Article.findByIdAndDelete(req.params._id)
+        .then((params) => {
+            res.json({ articlesLink: "/articles" })
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+}
