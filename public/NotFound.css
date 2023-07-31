@@ -166,10 +166,11 @@ input,
 select,
 textarea {
     font-family: 'Montserrat', Helvetica, sans-serif;
-    color: #92a4ad;
+    color: #92a4ad !important;
 }
 
 h1 {
     text-align: center;
     margin: 30px 15px;
+    color: #92a4ad !important;
 }

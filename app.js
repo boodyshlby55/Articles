@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import ejsLayout from "express-ejs-layouts";
 import mongoose from "mongoose";
+import helmet from "helmet";
 
 import homeRouter from "./routes/homeRouter.js"
 import articlesRouter from "./routes/articlesRouter.js"
@@ -13,6 +14,7 @@ app.set('views', './views');
 app.use(express.static('public'))
 app.use(ejsLayout)
 app.use(express.urlencoded({ extended: true }))
+app.use(helmet())
 
 // mongoose connection
 mongoose.connect(process.env.mongoConnection)
