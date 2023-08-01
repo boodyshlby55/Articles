@@ -1,6 +1,6 @@
 <div class="container w-50 border-3 shadow p-3 my-5 bg-white rounded">
     <h1 class="text-center text-capitalize">update article</h1>
-    <form action="/articles/<%= article._id %>?_method=PUT" method="post" class="my-5 text-capitalize">
+    <form action="/articles/<%=article._id%>?_method=PUT" method="post" class="my-5 text-capitalize">
         <div class="mb-5">
             <label for="title" class="form-label">title</label>
             <input type="text" class="form-control" id="title" name="title" required value="<%= article.title %>">
@@ -10,6 +10,6 @@
             <textarea type="text" class="form-control" id="article" name="details" rows="6" required></textarea>
         </div>
         <button type="submit" class="btn btn-success">Update</button>
-        <a href="/articles/<%= article._id %>" class="btn btn-danger">Cancel</a>
+        <a href="/articles/<%=article._id%>" class="btn btn-danger">Cancel</a>
     </form>
 </div>
