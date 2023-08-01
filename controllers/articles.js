@@ -21,6 +21,13 @@ export const addArticlePage = (req, res) => {
     res.render('addArticle', { pageTitle: "Add Article", display: "d-none" })
 }
 
+export const updateArticlePage = (req, res) => {
+    Article.findById(req.params._id)
+        .then((result) => {
+            res.render('updateArticle', { pageTitle: `Update ${result.title} Article`, display: "d-none", article: result })
+        })
+}
+
 export const saveArticle = (req, res) => {
     const article = new Article(req.body)
     article.save()
@@ -46,3 +53,13 @@ export const deleteArticle = (req, res) => {
             console.log(err);
         })
 }
+
+// export const updateArticle = (req, res) => {
+    // const article = new Article(req.body)
+    // article.findByIdAndUpdate(req.params._id, {
+    //     $set: { article }
+    // })
+    //     .then(() => {
+    //         res.redirect(`/articles/${req.params._id}`)
+    //     })
+// }

@@ -8,5 +8,6 @@
 </div>
 <button id="delete" data-deleteArticle="<%= article._id %>" class="btn btn-danger ms-4 mb-4 text-capitalize">delete
     article</button>
-<button class="btn btn-success ms-4 mb-4 text-capitalize">update article</button>
-    <script src="/script.js"></script>
+<a class="btn btn-success ms-4 mb-4 text-capitalize" href="/articles/<%= article._id %>/updateArticle">update
+    article</a>
+<script src="/script.js"></script>

@@ -2,6 +2,7 @@ import express from "express"
 import dotenv from "dotenv"
 import ejsLayout from "express-ejs-layouts";
 import mongoose from "mongoose";
+import methodOverride from "method-override";
 import helmet from "helmet";
 
 import homeRouter from "./routes/homeRouter.js"
@@ -14,6 +15,7 @@ app.set('views', './views');
 app.use(express.static('public'))
 app.use(ejsLayout)
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'))
 app.use(helmet())
 
 // mongoose connection
