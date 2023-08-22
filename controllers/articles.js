@@ -2,13 +2,13 @@ import Article from "../models/articlesSchema.js"
 
 export const articlesPage = (req, res) => {
     Article.find()
-        .then((result) => { res.render('articles', { pageTitle: "Articles", display: "d-none", articles: result }) })
+        .then((result) => { res.render('articles', { pageTitle: "Articles", headerTitle: "All Articles", display: "d-none", articles: result }) })
         .catch((err) => { console.log(err); })
 }
 
 export const articlePage = (req, res) => {
     Article.findById(req.params._id)
-        .then((result) => { res.render('article', { pageTitle: `${result.title} Article`, display: "d-inline-block", article: result }) })
+        .then((result) => { res.render('article', { pageTitle: `${result.title} Article`, headerTitle: `${result.title}`, display: "d-inline-block", article: result }) })
 }
 
 export const addArticlePage = (req, res) => {
@@ -17,7 +17,7 @@ export const addArticlePage = (req, res) => {
 
 export const updateArticlePage = (req, res) => {
     Article.findById(req.params._id)
-        .then((result) => { res.render('updateArticle', { pageTitle: `Update ${result.title} Article`, display: "d-none", article: result }) })
+        .then((result) => { res.render('updateArticle', { pageTitle: `Update ${result.title}`, headerTitle: `Update "${result.title}"`, display: "d-none", article: result }) })
 }
 
 export const saveArticle = (req, res) => {

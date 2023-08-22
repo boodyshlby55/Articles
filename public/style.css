@@ -1,3 +1,23 @@
+@font-face {
+    font-family: 'Dancing';
+    src: url('./webfonts/DancingScript-VariableFont_wght.ttf');
+}
+
+@font-face {
+    font-family: 'KaushanScript';
+    src: url('./webfonts/KaushanScript-Regular.ttf');
+}
+
+.nav-link {
+    color: white !important;
+    font-family: Dancing;
+    font-size: 20px;
+}
+
+.headerTitle {
+    font-family: KaushanScript;
+}
+
 /* Home */
 .bg-cover {
     background-size: cover !important;
