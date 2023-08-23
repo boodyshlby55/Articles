@@ -29,3 +29,29 @@
     background-image: url("/images/wallpaperflare.com_wallpaper.jpg");
     background-size: cover;
 }
+
+/* login - signup */
+.login-bg {
+    background-image: url('./images/background.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+.form-title {
+    font-family: KaushanScript;
+}
+
+.my-7 {
+    margin-top: 10rem !important;
+    margin-bottom: 10rem !important;
+}
+
+.form-bg {
+    background-color: #ffffff14;
+}
+
+.w-35 {
+    width: 35%;
+}
