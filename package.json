@@ -12,7 +12,7 @@
   "author": "Abdelrahman Sheref",
   "license": "ISC",
   "engines": {
-    "node": "18.17.0"
+    "node": "18.17.1"
   },
   "dependencies": {
     "dotenv": "^16.3.1",

@@ -6,7 +6,7 @@
         <%-include("./partials/navbar.ejs") %>
             <div class="container w-35 mobWidth border-5 shadow-lg p-3 my-4 my-7 form-bg rounded">
                 <h1 class="text-center text-capitalize form-title text-white">SignUp</h1>
-                <form action="" method="post" class="my-5 text-capitalize">
+                <form action="/signup" method="post" id="signupForm" class="my-5 text-capitalize">
                     <div class="d-flex justify-content-between">
                         <label for="firstName" class="form-label text-white">first name</label>
                         <label for="lastName" class="form-label text-white">last name</label>
@@ -18,18 +18,30 @@
                     <div class="mb-5">
                         <label for="username" class="form-label text-white">username</label>
                         <input type="text" class="form-control" id="username" name="username" required>
+                        <% if(userMessage){ %>
+                            <label for="username" class="form-label text-danger">
+                                <%= userMessage %>
+                            </label>
+                            <% } %>
                     </div>
                     <div class="mb-5">
                         <label for="password" class="form-label text-white">password</label>
-                        <input type="password" class="form-control" id="password" name="password" required>
+                        <input type="password" class="form-control" id="password" name="password" minlength="8"
+                            maxlength="16" required>
                     </div>
                     <div class="mb-5">
                         <label for="repeatpassword" class="form-label text-white">repeat password</label>
-                        <input type="password" class="form-control" id="repeatpassword" name="repeatpassword" required>
+                        <input type="password" class="form-control" id="repeatpassword" name="repeatpassword"
+                            minlength="8" maxlength="16" required>
                     </div>
                     <div class="mb-5">
                         <label for="email" class="form-label text-white">E-mail</label>
                         <input type="email" class="form-control" id="email" name="email" required>
+                        <% if(emailMessage){ %>
+                            <label for="username" class="form-label text-danger">
+                                <%= emailMessage %>
+                            </label>
+                            <% } %>
                     </div>
                     <button type="submit" class="btn btn-outline-success me-2">SignUp</button>
                     <!-- <a href=""
@@ -37,6 +49,7 @@
                         password</a> -->
                 </form>
             </div>
+            <script src="signup.js"></script>
     </body>
 
 </html>
