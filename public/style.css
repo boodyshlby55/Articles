@@ -8,9 +8,28 @@
     src: url('./webfonts/KaushanScript-Regular.ttf');
 }
 
+@media (max-width:1279px) {
+    .signup-bg {
+        height: 150vh !important;
+    }
+}
+
 @media (max-width:767px) {
+    .mobPositon {
+        position: absolute;
+        top: 100px;
+        left: 0%;
+        z-index: -1;
+    }
+
     .mobWidth {
         width: 90% !important;
+    }
+}
+
+@media (max-width:400px) {
+    .signup-bg {
+        height: 165vh !important;
     }
 }
 
@@ -20,15 +39,9 @@
     }
 }
 
-@media (max-width:1399px) {
+@media (min-width:1280px) and (max-width:1399px) {
     .signup-bg {
         height: 135vh !important;
-    }
-}
-
-@media (min-width:1024px) and (max-width:1279px) {
-    .signup-bg {
-        height: 150vh !important;
     }
 }
 
@@ -49,7 +62,7 @@
     font-family: KaushanScript;
 }
 
-/* Home */
+/* Header */
 .bg-cover {
     background-size: cover !important;
     height: 50vh;
