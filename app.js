@@ -8,6 +8,7 @@ import helmet from "helmet";
 import homeRouter from "./routes/homeRouter.js"
 import articlesRouter from "./routes/articlesRouter.js"
 import loginRouter from "./routes/loginRouter.js"
+import signupRouter from "./routes/signupRouter.js"
 
 dotenv.config();
 const app = express()
@@ -33,4 +34,5 @@ app.get('/', (req, res) => { res.redirect('/home') })
 app.use('/home', homeRouter)
 app.use('/articles', articlesRouter)
 app.use('/login', loginRouter)
+app.use('/signup', signupRouter)
 app.use((req, res) => { res.status(404).render('NotFound', { layout: false }) })

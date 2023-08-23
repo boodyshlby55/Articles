@@ -8,6 +8,37 @@
     src: url('./webfonts/KaushanScript-Regular.ttf');
 }
 
+@media (max-width:767px) {
+    .mobWidth {
+        width: 90% !important;
+    }
+}
+
+@media (min-width:768px) and (max-width:1023px) {
+    .mobWidth {
+        width: 50% !important;
+    }
+}
+
+@media (max-width:1399px) {
+    .signup-bg {
+        height: 135vh !important;
+    }
+}
+
+@media (min-width:1024px) and (max-width:1279px) {
+    .signup-bg {
+        height: 150vh !important;
+    }
+}
+
+@media (min-width:1400px) {
+    .my-7 {
+        margin-top: 5.5rem !important;
+        margin-bottom: 5.5rem !important;
+    }
+}
+
 .nav-link {
     color: white !important;
     font-family: Dancing;
@@ -41,11 +72,6 @@
 
 .form-title {
     font-family: KaushanScript;
-}
-
-.my-7 {
-    margin-top: 10rem !important;
-    margin-bottom: 10rem !important;
 }
 
 .form-bg {
