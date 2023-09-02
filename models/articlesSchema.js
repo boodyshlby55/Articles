@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import { Schema, model } from "mongoose";
 
 const article = new Schema({
@@ -8,6 +9,10 @@ const article = new Schema({
     details: {
         type: String,
         required: true
+    },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref:"user",
     }
 });
 
