@@ -58,7 +58,8 @@
     font-size: 20px;
 }
 
-.headerTitle {
+.headerTitle,
+.form-title {
     font-family: KaushanScript;
 }
 
@@ -81,10 +82,6 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
-}
-
-.form-title {
-    font-family: KaushanScript;
 }
 
 .form-bg {
