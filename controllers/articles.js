@@ -1,14 +1,26 @@
 import Article from "../models/articlesSchema.js"
 
 export const articlesPage = async (req, res) => {
+    const perPage = 8; // Number of items per page
+    const page = Number(req.query.page || 1); // Current page number
+    const totalArticles = await Article.countDocuments();
+    const totalPages = Math.ceil(totalArticles / perPage);
     await Article.find()
-        .then((result) => { res.render('articles', { pageTitle: "Articles", headerTitle: "All Articles", display: "d-none", user: req.user, articles: result }) })
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .then((result) => { res.render('articles', { pageTitle: "Articles", headerTitle: "All Articles", display: "d-none", user: req.user, articles: result, currentPage: page, totalPages }) })
         .catch((err) => { console.log(err); })
 }
 
 export const userArticlesPage = async (req, res) => {
+    const perPage = 8; // Number of items per page
+    const page = Number(req.query.page || 1); // Current page number
+    const totalArticles = await Article.countDocuments();
+    const totalPages = Math.ceil(totalArticles / perPage);
     await Article.find({ user: req.user._id })
-        .then((result) => { res.render('userArticles', { pageTitle: "My Articles", headerTitle: "My Articles", display: "d-none", user: req.user, articles: result }) })
+        .skip((perPage * page) - perPage)
+        .limit(perPage)
+        .then((result) => { res.render('userArticles', { pageTitle: "My Articles", headerTitle: "My Articles", display: "d-none", user: req.user, articles: result, currentPage: page, totalPages }) })
         .catch((err) => { console.log(err); })
 }
 

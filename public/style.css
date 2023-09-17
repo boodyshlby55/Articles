@@ -94,3 +94,7 @@
 .w-35 {
     width: 35%;
 }
+
+.check {
+    display: none;
+}

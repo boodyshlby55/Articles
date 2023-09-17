@@ -10,3 +10,14 @@
         </div>
         <% }); %>
 </div>
+<div class="container text-center my-2">
+    <a class="btn btn-primary" href="?page=1">First</a>
+    <% if (currentPage> 1) { %>
+        <a class="btn btn-primary" href="?page=<%= currentPage - 1 %>">Previous</a>
+        <% } %>
+
+            <% if (currentPage < totalPages) { %>
+                <a class="btn btn-primary" href="?page=<%= currentPage + 1 %>">Next</a>
+                <% } %>
+                    <a class="btn btn-primary" href="?page=<%= totalPages %>">Last</a>
+</div>
